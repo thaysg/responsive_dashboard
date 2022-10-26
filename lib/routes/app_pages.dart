@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'routes_imporst.dart';
@@ -16,11 +16,6 @@ class AppPages {
       transitionDuration: const Duration(seconds: 1),
     ),
     GetPage(
-      name: HomePage.routeName,
-      page: () => const HomePage(),
-      binding: HomeBindings(),
-    ),
-    GetPage(
       name: LoginPage.routeName,
       page: () => const LoginPage(),
       binding: LoginBindings(),
@@ -32,6 +27,35 @@ class AppPages {
       name: SignupPage.routeName,
       page: () => const SignupPage(),
       binding: SignupBindings(),
+    ),
+    GetPage(
+      name: PageViewPage.routeName,
+      page: () => const PageViewPage(),
+      binding: PageViewBindings(),
+    ),
+    GetPage(
+      name: HomePage.routeName,
+      page: () => const HomePage(),
+      binding: HomeBindings(),
+    ),
+    GetPage(
+      name: PdvPage.routeName,
+      page: () => const PdvPage(),
+      binding: PdvBindings(),
+    ),
+    GetPage(
+      name: ProfilePage.routeName,
+      page: () => const ProfilePage(),
+      binding: ProfileBindings(),
+    ),
+    GetPage(
+      name: CreditCardPage.routeName,
+      page: () => const CreditCardPage(),
+      binding: CreditCardBindings(),
+    ),
+    GetPage(
+      name: SearchScreen.routeName,
+      page: () => const SearchScreen(),
     ),
   ];
 }

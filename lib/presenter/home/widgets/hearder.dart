@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shop_easy/config/responsive.dart';
+import 'package:shop_easy/core/app_colors.dart';
+import 'package:shop_easy/presenter/home/widgets/custom_search_delegate.dart';
 import 'package:shop_easy/shared/widgets/text_form_widget.dart';
 
-import '../../../config/responsive.dart';
 import '../../../core/primary_text.dart';
 
 class Header extends StatelessWidget {
@@ -33,12 +35,66 @@ class Header extends StatelessWidget {
         ),
         const Spacer(flex: 1),
         Expanded(
-          flex: Responsive.isDesktop(context) ? 1 : 4,
-          child: const TextFormWidget(
-            hintText: 'Search',
-          ),
-        ),
+            flex: Responsive.isDesktop(context) ? 1 : 4,
+            child: TextFormWidget(
+              hintText: 'Search',
+              onTap: () {
+                // Get.toNamed(SearchScreen.routeName);
+                showSearch(
+                  context: context,
+                  delegate: CustomSearchDelegate(),
+                );
+              },
+              showSuffixIcon: true,
+              suffixIcon: const Icon(
+                Icons.search,
+                color: secondaryDark,
+              ),
+            ) /* GestureDetector(
+            onTap: () {
+              showSearch(
+                context: context,
+                delegate: CustomSearchDelegate(),
+              );
+            },
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: secondaryDark,
+                  )),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  onPressed: () {
+                    showSearch(
+                      context: context,
+                      delegate: CustomSearchDelegate(),
+                    );
+                  },
+                  icon: const Icon(Icons.search),
+                ),
+              ),
+            ),
+          ), */
+            ),
       ],
     );
   }
 }
+
+/*
+ GestureDetector(
+            onTap: () {
+              showSearch(
+                context: context,
+                delegate: CustomSearchDelegate(),
+              );
+            },
+            child: const TextFormWidget(
+              hintText: 'Search',
+              suffixIcon: Icon(Icons.search),
+              showSuffixIcon: true,
+            ),
+          ),
+*/

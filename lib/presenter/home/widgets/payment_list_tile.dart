@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shop_easy/core/app_colors.dart';
 
 import '../../../config/responsive.dart';
+import '../../../core/app_colors.dart';
 import '../../../core/primary_text.dart';
 
 class PaymentListTile extends StatelessWidget {

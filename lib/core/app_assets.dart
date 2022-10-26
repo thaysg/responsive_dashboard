@@ -18,3 +18,5 @@ const card = 'assets/icons/card.png';
 const transfer = 'assets/icons/transfer.svg';
 const bank = 'assets/icons/bank.svg';
 const exit = 'assets/icons/exit.svg';
+const logo = 'assets/images/logo.jpg';
+const user = 'assets/icons/menu_profile.svg';

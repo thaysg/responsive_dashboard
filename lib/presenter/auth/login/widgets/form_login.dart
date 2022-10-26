@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_easy/routes/routes_imporst.dart';
 
 import '../../../../core/app_styles.dart';
+import '../../../../routes/routes_imporst.dart';
 import '../../../../shared/widgets/button_default_widget.dart';
 import '../../../../shared/widgets/text_form_widget.dart';
 
@@ -41,7 +41,7 @@ class FormLogin extends StatelessWidget {
             ButtonDefaultWidget(
               height: 60,
               onPressed: () {
-                Get.offAndToNamed(HomePage.routeName);
+                Get.offAndToNamed(PageViewPage.routeName);
               },
               text: 'Entrar',
               fontSize: 22,

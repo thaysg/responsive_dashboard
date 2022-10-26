@@ -1,9 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_easy/core/app_colors.dart';
+import 'package:shop_easy/shared/widgets/image_network_avatar.dart';
 
 import '../../../config/responsive.dart';
 import '../../../config/size_config.dart';
+import '../../../core/app_colors.dart';
 import '../../../core/primary_text.dart';
 import '../../../infra/data.dart';
 
@@ -13,6 +13,7 @@ class HistoryTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: ScrollController(),
       physics: const BouncingScrollPhysics(),
       scrollDirection:
           Responsive.isDesktop(context) ? Axis.vertical : Axis.horizontal,
@@ -21,6 +22,14 @@ class HistoryTable extends StatelessWidget {
             ? double.infinity
             : SizeConfig.screenWidth,
         child: Table(
+          border: TableBorder.all(
+            color: secondaryDark,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          columnWidths: const <int, TableColumnWidth>{
+            0: FixedColumnWidth(100),
+            1: FlexColumnWidth(),
+          },
           defaultVerticalAlignment: TableCellVerticalAlignment.middle,
           children: List.generate(
             transactionHistory.length,
@@ -29,54 +38,86 @@ class HistoryTable extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               children: [
-                Container(
-                  alignment: Alignment.centerLeft,
-                  padding: const EdgeInsets.only(
-                    top: 10.0,
-                    bottom: 10.0,
-                    left: 20.0,
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: ImageNetworkAvatar(
+                    imagePath: transactionHistory[index]["avatar"]!,
                   ),
-                  child: CachedNetworkImage(
-                    imageUrl: '',
-                    imageBuilder: (context, imageProvider) => CircleAvatar(
-                      radius: 17,
-                      backgroundColor: secondaryDark,
-                      backgroundImage: NetworkImage(
+                  /* CircleAvatar(
+                    radius: 20,
+                    child: ClipOval(
+                      clipBehavior: Clip.hardEdge,
+                      child: Image.network(
                         transactionHistory[index]["avatar"]!,
+                        width: 40,
+                        height: 50,
+                        fit: BoxFit.fill,
                       ),
                     ),
-                    errorWidget: (context, url, error) => const CircleAvatar(
-                      backgroundColor: secondaryDark,
-                      radius: 17,
-                      child: Center(
-                        child: Icon(Icons.person),
+                  ), */
+                ),
+                /* CircleAvatarWidget(
+                    radius: 20,
+                    errorRadius: 20,
+                    imageUrl: '',
+                    imagePath: '',
+                    child: ClipOval(
+                      child: Image.network(
+                        transactionHistory[index]["avatar"] ??
+                            'https://www.gamespot.com/a/uploads/screen_kubrick/1574/15746725/3730466-evo_ironman_gs.jpg',
                       ),
                     ),
                   ),
+                ), */
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0, right: 4),
+                  child: PrimaryText(
+                    text: transactionHistory[index]["name"]!,
+                    size: Responsive.isDesktop(context) ? 16 : 11,
+                    fontWeight: FontWeight.w500,
+                    color: secondaryDark,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                PrimaryText(
-                  text: transactionHistory[index]["label"]!,
-                  size: 16,
-                  fontWeight: FontWeight.w400,
-                  color: secondaryDark,
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: PrimaryText(
+                    text: transactionHistory[index]["label"]!,
+                    size: Responsive.isDesktop(context) ? 16 : 11,
+                    fontWeight: FontWeight.w400,
+                    color: secondaryDark,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                PrimaryText(
-                  text: transactionHistory[index]["time"]!,
-                  size: 16,
-                  fontWeight: FontWeight.w400,
-                  color: secondaryDark,
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: PrimaryText(
+                    text: transactionHistory[index]["time"]!,
+                    size: Responsive.isDesktop(context) ? 16 : 11,
+                    fontWeight: FontWeight.w400,
+                    color: secondaryDark,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                PrimaryText(
-                  text: transactionHistory[index]["amount"]!,
-                  size: 16,
-                  fontWeight: FontWeight.w400,
-                  color: secondaryDark,
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: PrimaryText(
+                    text: transactionHistory[index]["amount"]!,
+                    size: Responsive.isDesktop(context) ? 16 : 11,
+                    fontWeight: FontWeight.w400,
+                    color: secondaryDark,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                PrimaryText(
-                  text: transactionHistory[index]["status"]!,
-                  size: 16,
-                  fontWeight: FontWeight.w400,
-                  color: secondaryDark,
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: PrimaryText(
+                    text: transactionHistory[index]["status"]!,
+                    size: Responsive.isDesktop(context) ? 16 : 11,
+                    fontWeight: FontWeight.w400,
+                    color: secondaryDark,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
             ),

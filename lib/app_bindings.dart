@@ -16,6 +16,8 @@ class AppBindings implements Bindings {
       connect.httpClient.addResponseModifier(responseModifier);
       return connect;
     });
+    //Get.put(HomeController());
+    //Get.put(CreditCardController());
   }
 
   FutureOr<Request> requestModifier(Request request) async {

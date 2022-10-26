@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shop_easy/core/app_colors.dart';
-import 'package:shop_easy/presenter/home/widgets/payment_list_tile.dart';
 
 import '../../../config/responsive.dart';
 import '../../../config/size_config.dart';
-import '../../../core/app_assets.dart';
+import '../../../core/app_colors.dart';
 import '../../../core/primary_text.dart';
 import '../../../infra/data.dart';
+import 'payment_list_tile.dart';
 
 class PaymentDetailList extends StatelessWidget {
   const PaymentDetailList({Key? key}) : super(key: key);
@@ -17,21 +16,44 @@ class PaymentDetailList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: SizeConfig.blockSizeVertical! * 5),
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            boxShadow: const [
-              BoxShadow(
-                color: lilyWhite,
-                blurRadius: 5.0,
-                offset: Offset(
-                  1.0,
-                  2.0,
-                ),
-              )
-            ],
+        SizedBox(
+          width: double.infinity,
+          height: 200,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomLeft,
+                colors: [
+                  secondaryDark,
+                  primaryDark,
+                ],
+              ),
+              borderRadius: BorderRadius.circular(30),
+              boxShadow: const [
+                BoxShadow(
+                  color: lilyWhite,
+                  blurRadius: 5.0,
+                  offset: Offset(
+                    1.0,
+                    2.0,
+                  ),
+                )
+              ],
+            ),
+            /*  child: ClipRRect(
+              borderRadius: BorderRadius.circular(30),
+              child: Image.asset(
+                logo,
+                fit: BoxFit.cover,
+              ),
+            ), */
+            child: const Icon(
+              Icons.flutter_dash_rounded,
+              size: 150,
+              color: lilyWhite,
+            ),
           ),
-          child: Image.asset(card),
         ),
         SizedBox(height: SizeConfig.blockSizeVertical! * 5),
         Column(

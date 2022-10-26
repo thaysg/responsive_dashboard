@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:lottie/lottie.dart';
-import 'package:shop_easy/core/app_assets.dart';
 
+import '../../../core/app_assets.dart';
 import 'login_controller.dart';
 import 'widgets/form_login.dart';
 

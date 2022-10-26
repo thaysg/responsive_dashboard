@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:get/instance_manager.dart';
 
 import 'signup_controller.dart';
 

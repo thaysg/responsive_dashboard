@@ -1,8 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_easy/core/app_colors.dart';
 
 import '../../../config/responsive.dart';
+import '../../../core/app_colors.dart';
 
 class BarChartCopmponent extends StatelessWidget {
   const BarChartCopmponent({Key? key}) : super(key: key);

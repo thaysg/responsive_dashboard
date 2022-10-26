@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shop_easy/core/app_colors.dart';
+
+import '../../core/app_colors.dart';
 
 class TextFormWidget extends StatelessWidget {
   final FocusNode? focusNode;
@@ -22,6 +23,10 @@ class TextFormWidget extends StatelessWidget {
   final Widget? suffixIcon;
   final bool showSuffixIcon;
   final double paddingHorizontal;
+  final Color? hintColor;
+  final Color? labelColor;
+  final Color? textStyleColor;
+  final void Function()? onTap;
   const TextFormWidget({
     Key? key,
     this.focusNode,
@@ -46,11 +51,19 @@ class TextFormWidget extends StatelessWidget {
       color: Colors.red,
     ),
     this.paddingHorizontal = 0,
+    this.hintColor,
+    this.labelColor,
+    this.textStyleColor,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
+      style: TextStyle(
+        color: textStyleColor,
+      ),
       maxLines: maxLines,
       textAlign: textAlign,
       focusNode: focusNode,
@@ -67,7 +80,10 @@ class TextFormWidget extends StatelessWidget {
         iconColor: primaryDark,
         focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50)),
-          borderSide: BorderSide(color: primaryDark),
+          borderSide: BorderSide(
+            color: primaryDark,
+            width: 2,
+          ),
         ),
         suffixIcon: showSuffixIcon ? suffixIcon : null,
         focusColor: primaryDark,
@@ -92,19 +108,21 @@ class TextFormWidget extends StatelessWidget {
           }
           return primaryDark;
         }),
-        /* filled: true,
-        fillColor: secondaryDark, */
+        filled: true,
+        //fillColor: Colors.white10, */
         labelText: labelText,
         counterText: '',
         hintText: hintText,
         helperText: helperText,
-        hintStyle: const TextStyle(
+        hintStyle: TextStyle(
           fontSize: 17,
           fontWeight: FontWeight.w400,
+          color: hintColor,
         ),
-        labelStyle: const TextStyle(
+        labelStyle: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w400,
+          color: labelColor,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(50),

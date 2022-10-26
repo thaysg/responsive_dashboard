@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_easy/core/app_colors.dart';
 
+import '../../core/app_colors.dart';
 import '../utils/ternary_clean.dart';
 
 class ButtonDefaultWidget extends StatelessWidget {
@@ -47,12 +47,10 @@ class ButtonDefaultWidget extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        gradient: const LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
+        gradient: LinearGradient(
           colors: [
             primaryDark,
-            secondaryDark,
+            secondaryDark.withOpacity(0.8),
             primaryDark,
           ],
         ),
@@ -60,6 +58,7 @@ class ButtonDefaultWidget extends StatelessWidget {
       width: width,
       duration: const Duration(milliseconds: 500),
       child: MaterialButton(
+        height: height,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),

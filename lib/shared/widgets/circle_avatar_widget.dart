@@ -1,27 +1,46 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_easy/core/app_assets.dart';
 
 import '../../core/app_colors.dart';
 
 class CircleAvatarWidget extends StatelessWidget {
-  const CircleAvatarWidget({Key? key}) : super(key: key);
+  final double? radius;
+  final double? errorRadius;
+  final double? width;
+  final String imageUrl;
+  final String imagePath;
+  const CircleAvatarWidget({
+    Key? key,
+    this.radius,
+    this.errorRadius,
+    this.width,
+    required this.imageUrl,
+    required this.imagePath,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: '',
-      imageBuilder: (context, imageProvider) => const CircleAvatar(
-        radius: 17,
+      imageUrl: imageUrl,
+      imageBuilder: (context, imageProvider) => CircleAvatar(
+        radius: radius ?? 17,
         backgroundColor: lilyWhite,
         backgroundImage: NetworkImage(
-          'https://www.gamespot.com/a/uploads/screen_kubrick/1574/15746725/3730466-evo_ironman_gs.jpg',
+          imagePath,
         ),
       ),
-      errorWidget: (context, url, error) => const CircleAvatar(
+      errorWidget: (context, url, error) => CircleAvatar(
         backgroundColor: lilyWhite,
-        radius: 17,
+        radius: errorRadius ?? 17,
         child: Center(
-          child: Icon(Icons.person),
+          child: SvgPicture.asset(
+            user,
+            color: secondaryDark,
+            fit: BoxFit.cover,
+            width: width ?? 15,
+          ),
         ),
       ),
     );

@@ -20,12 +20,15 @@ class AppTheme {
       outline: secondaryDark,
       onTertiary: primaryDark,
     ),
+    textSelectionTheme:
+        const TextSelectionThemeData(cursorColor: secondaryDark),
     primarySwatch: CustomMaterialColor.createMaterialColor(primaryDark),
     primaryColor: primaryDark,
     scaffoldBackgroundColor: quartz,
     appBarTheme: const AppBarTheme(
+      iconTheme: IconThemeData(color: lilyWhite),
       backgroundColor: primaryDark,
-      centerTitle: true,
+      //centerTitle: true,
       titleTextStyle: TextStyle(
         color: Colors.white,
         fontSize: 18,
@@ -82,6 +85,8 @@ class AppTheme {
       onTertiary: primaryDark,
     ),
     primaryColorDark: primaryDark,
+    textSelectionTheme:
+        const TextSelectionThemeData(cursorColor: secondaryDark),
     brightness: Brightness.dark,
     primaryColor: primaryDark,
     scaffoldBackgroundColor: background,
